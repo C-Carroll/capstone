@@ -1,5 +1,5 @@
 # Capstone - Bandcamp 
-* Bandcamp is a web application that allows users to post there music and others to listen. We invite users to review others work and share there opinions with the world.
+* Bandcamp is a web application that allows users to post there music and others to listen. We invite users to review others work and share there opinions with the world. If users like a song/a;bum they can add it to there library for future reference.
   
 ## MVP
 ### 1. Products
