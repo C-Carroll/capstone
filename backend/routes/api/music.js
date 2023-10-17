@@ -127,18 +127,26 @@ router.get("/album/:albumId", async (req, res) => {
 
 //GET all albums
 router.get("/", async (req, res) => {
-  const albums = await Album.findAll();
-  const formatted = albums.map((alb) => {
-    const artist = Artist.findByPk(alb.artistId);
-    return {
-      album: alb.albumName,
-      albumPic: alb.albumPicture,
-      albumRating: alb.albumRating,
-      albumPrice: alb.albumPrice,
-      isExplicit: alb.isExplicit,
-    };
+  const albums = await Album.findAll({
+    include: [
+        {
+            model: Artist,
+            attributes: ["name"]
+        }
+    ]
   });
-  return res.status(200).json({ Albums: formatted });
+//   const formatted = albums.map((alb) => {
+//     const artist = Artist.findByPk(alb.artistId);
+//     return {
+//       album: alb.albumName,
+//       albumPic: alb.albumPicture,
+//       albumRating: alb.albumRating,
+//       albumPrice: alb.albumPrice,
+//       isExplicit: alb.isExplicit,
+//     };
+//   });
+
+  return res.status(200).json({ Albums: albums });
 });
 
 module.exports = router;

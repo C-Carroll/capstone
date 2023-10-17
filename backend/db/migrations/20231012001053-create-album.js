@@ -29,7 +29,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       albumRating: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
       },
       isExplicit: {
         type: Sequelize.BOOLEAN,
