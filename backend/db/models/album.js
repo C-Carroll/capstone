@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Album.belongsTo(models.Library, {foreignKey: "ownedAlbumId"})
+      Album.hasMany(models.Library, {foreignKey: "ownedAlbumId"})
       Album.hasMany(models.Review, {foreignKey: "albumId"})
       Album.hasMany(models.Song, {foreignKey: "albumId"})
       Album.belongsTo(models.Artist, {foreignKey: "artistId"})
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     albumName: DataTypes.STRING,
     albumPicture: DataTypes.STRING,
     albumPrice: DataTypes.INTEGER,
-    albumRating: DataTypes.INTEGER,
+    albumRating: DataTypes.DECIMAL,
     isExplicit: DataTypes.BOOLEAN
   }, {
     sequelize,
