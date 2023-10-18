@@ -88,6 +88,18 @@ router.put('/update/:artistId', requireAuth, async (req, res) => {
 
 })
 
+//Delete Artist
+router.delete("/delete/:userId", requireAuth, async (req, res) => {
+    const artistFinder = await Artist.findOne({
+        where: {userId: Number(req.params.userId)}
+    })
+    if(!artistFinder){res.status(403).json({message: "forbidden"})}
+    else{
+        await artistFinder.destroy()
+        res.status(200).json({message: "Your Artist acount has sucessfully been deleted"})
+    }
+})
+
 //GET artist info
 router.get('/:artistId', async (req, res) => {
     const artistFinder = await Artist.findByPk(Number(req.params.artistId))

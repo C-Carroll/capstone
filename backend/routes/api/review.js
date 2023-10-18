@@ -25,6 +25,40 @@ const validRev = [
     handleValidationErrors
 ]
 
+//Delete Review
+router.delete('/delete/:reviewId', requireAuth, async (req, res) => {
+    const findRev = await Review.findByPk(Number(req.params.reviewId))
+    if(!findRev){res.status(404).json({message: "Review Not Found"})}
+    else if(findRev.userId !== req.user.id){res.status(403).json({message: "forbidden"})}
+    else {
+        const revAlbumId = findRev.albumId
+        await findRev.destroy()
+        let revCount = await Review.count({
+            where: {
+                albumId: revAlbumId,
+                rating: {
+                    [Op.between]: [1, 5]
+                }
+            }
+        })
+        let revSum = await Review.sum('rating', {
+            where: {
+                albumId: revAlbumId,
+                rating: {
+                    [Op.between]: [1, 5]
+                }
+            }
+        })
+        let avg = revSum / revCount
+        const albumRatingUpdate = await Album.update(
+            {albumRating: avg},
+            {where: {id: revAlbumId}}
+        )
+
+        res.status(200).json({message: "Review Successfully Deleted"})
+    }
+})
+
 //Post review
 router.post('/new/:albumId', validRev, requireAuth, async (req, res) => {
     const findAlbum = await Album.findByPk(Number(req.params.albumId), {

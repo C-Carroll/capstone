@@ -114,6 +114,47 @@ router.get("/artist/:artistId", async(req, res) => {
     return res.status(200).json({ Albums: albums})
 })
 
+//get album by Id
+router.get("/album/:albumId", async (req, res) => {
+    const albumFinder = await Album.findByPk(Number(req.params.albumId))
+    if (!albumFinder) {res.status(404).json({message: "Album Not Found"})}
+    else {res.status(200).json(albumFinder)}
+})
+
+//delete album
+router.delete('/album/:albumId/delete', requireAuth, async (req, res) => {
+    const albumFinder = await Album.findByPk(Number(req.params.albumId), {
+        include: {
+            model: Artist,
+            attributes: ["userId"]
+        }
+    })
+    if (!albumFinder){res.status(404).json({messgae: "Album Not Found"})}
+    else if (albumFinder.Artist.userId !== req.user.id){res.status(403).json({message: "Forbidden"})}
+    else {
+        await albumFinder.destroy()
+        res.status(200).json({message: "Album Successfully Deleted"})
+    }
+})
+
+//Delete Song
+router.get("/song/:songId", requireAuth, async (req, res) => {
+    const songFinder = await Song.findByPk(Number(req.params.songId), {
+        include: {
+            model: Artist,
+            attributes: ["userId"]
+        }
+    })
+    if(!songFinder){ res.status(404).json({message: "Song not found"})}
+    else if(songFinder.Artist.userId !== req.user.id){res.status(403).json({message: "forbidden"})}
+    else {
+        await songFinder.destroy()
+        res.status(200).json({message: "Song Successfully Deleted"})
+    }
+    res.json(songFinder)
+
+})
+
 //GET songs by album ID
 router.get("/album/:albumId", async (req, res) => {
   const songs = await Song.findAll({
@@ -124,6 +165,8 @@ router.get("/album/:albumId", async (req, res) => {
 
   return res.status(200).json({ Songs: songs });
 });
+
+
 
 //GET all albums
 router.get("/", async (req, res) => {
