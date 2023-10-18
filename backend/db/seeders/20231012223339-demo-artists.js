@@ -29,7 +29,7 @@ module.exports = {
         userId: 3
       }
 
-    ], { validate: true });
+    ], {});
   },
 
   async down (queryInterface, Sequelize) {
