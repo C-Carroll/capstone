@@ -1,3 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400&family=Major+Mono+Display&display=swap');
 .hidden {
     display: none
+}
+
+.Nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #FF8FB1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    border-bottom: 1px solid #432C7A;
+    z-index: 7;
+}
+.navHome {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+
+}
+.navForms {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+.navForms > button {
+    padding: 10px;
+    margin: 10px;
+}
+#homeLink {
+    text-decoration: none;
+    color: #432C7A;
+    font-size: x-large;
+    font-family: 'Major Mono Display', monospace;
+    font-weight: 400;
+    animation-duration: 1.75s;
+    animation-iteration-count: infinite;
+}
+
+#homeLink:hover {
+    animation-name: oui;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes oui {
+  0% {font-size: x-large; color: #432C7A;}
+  50% {font-size: 26px; color: #80489C;}
+  100% {font-size: x-large; color: #432C7A;}
 }

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400&family=Major+Mono+Display&display=swap');
+
+.apContainer {
+    width: 1240px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 1fr 8fr ;
+    font-family: 'Farro', sans-serif;
+    margin-top: 65px;
+}
+
+.apHeader{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.aph1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 35px;
+    margin-right: 13px;
+}
+.apBandName {
+    font-weight: 300;
+    font-size: large;
+}
+.apAlbumName {
+    font-weight: 400;
+    font-size: xxx-large;
+}
+.apAlbumRating {
+    font-weight: 300;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-right: 13px;
+
+}
+
+.apMain {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 700px;
+}
+.apMainTabs {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    background-color: #d6b4c9;
+    border-top-left-radius: 8px;
+}
+.tabs{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.active-tab {
+    background: linear-gradient(90deg, #80489C, #432C7A);
+    color: #FCE2DB;
+    padding-left: 20px;
+
+}
+.content {
+    border-top-right-radius: 8px;
+    background-color: aqua;
+    display: none;
+    height: 700px;
+}
+.active-content {
+    background-color: #432C7A;
+    display: block;
+}
+.tabs:first-child{
+    border-top-left-radius: 8px;
+}
+.tabs:hover {
+    background-color: #FF8FB1;
+}

@@ -13,13 +13,13 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <li>
+      <div>
         <ProfileButton user={sessionUser} />
-      </li>
+      </div>
     );
   } else {
     sessionLinks = (
-      <li>
+      <div className="navForms">
         <OpenModalButton
           buttonText="Log In"
           modalComponent={<LoginFormModal />}
@@ -28,19 +28,19 @@ function Navigation({ isLoaded }) {
           buttonText="Sign Up"
           modalComponent={<SignupFormModal />}
         />
-      </li>
+      </div>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
-          Home
+    <div className="Nav">
+      <div className="navHome">
+        <NavLink exact to="/albums" id='homeLink'>
+          Sound Voyage
         </NavLink>
-      </li>
+      </div>
       {isLoaded && sessionLinks}
-    </ul>
+    </div>
   );
 }
 
