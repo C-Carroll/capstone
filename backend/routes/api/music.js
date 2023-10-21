@@ -114,12 +114,32 @@ router.get("/artist/:artistId", async(req, res) => {
     return res.status(200).json({ Albums: albums})
 })
 
-//get album by Id
+
+//GET songs by album ID
+router.get("/album/songs/:albumId", async (req, res) => {
+    const songs = await Song.findAll({
+      where: {
+        albumId: Number(req.params.albumId),
+      },
+    });
+
+    return res.status(200).json({ Songs: songs });
+  });
+
+
+// get album by Id
 router.get("/album/:albumId", async (req, res) => {
-    const albumFinder = await Album.findByPk(Number(req.params.albumId))
+    const albumFinder = await Album.findByPk(Number(req.params.albumId), {
+        include: {
+            model: Artist,
+            attributes: ["name"]
+        }
+    })
     if (!albumFinder) {res.status(404).json({message: "Album Not Found"})}
     else {res.status(200).json(albumFinder)}
 })
+
+
 
 //delete album
 router.delete('/album/:albumId/delete', requireAuth, async (req, res) => {
@@ -155,16 +175,7 @@ router.get("/song/:songId", requireAuth, async (req, res) => {
 
 })
 
-//GET songs by album ID
-router.get("/album/:albumId", async (req, res) => {
-  const songs = await Song.findAll({
-    where: {
-      albumId: Number(req.params.albumId),
-    },
-  });
 
-  return res.status(200).json({ Songs: songs });
-});
 
 
 

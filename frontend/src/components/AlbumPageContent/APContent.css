@@ -1,0 +1,11 @@
+.APVideo  {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
+.APVideo > iframe {
+    width: 980px;
+    height: 551px;
+    border: none;
+}

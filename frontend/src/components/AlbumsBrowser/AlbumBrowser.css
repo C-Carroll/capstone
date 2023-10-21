@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400&family=Major+Mono+Display&display=swap');
+
+.abContainer {
+    font-family: 'Farro', sans-serif;
+    display: grid;
+    grid-template-rows: 1fr, 5fr;
+    margin: auto;
+    width: 1240px;
+    background-color: #FCE2DB;
+    margin-top: 65px;
+}
+.abHeader {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* border: 1px solid black; */
+}
+.abAlbumsContainer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: auto;
+}
+.abAlbum{
+    width: 310px;
+    height: 292px;
+    display: grid;
+    grid-template-rows: auto auto;
+    transition: 0.1s ease-in-out;
+}
+.abAlbumPic {
+    width: 276px;
+    height: 232px;
+    margin-left: 40px;
+
+
+}
+.abAlbumPic >img {
+    width:234px;
+    height: 234px;
+    padding: 0;
+    border: 1px solid black;
+    position: relative;
+    z-index: 3;
+
+}
+.abAlbumInfo {
+    visibility: hidden;
+    background-color: #d6b4c9;
+    height: 60px;
+    width: 234px;
+    transition: .2s ease-in-out;
+    border: 1px solid black;
+    display: flex;
+    margin: auto;
+    margin-top: 2px;
+    flex-direction: column;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    font-weight: 300;
+    justify-content: space-around;
+    position: relative;
+    bottom: 60px;
+
+}
+.abAlbum:hover .abAlbumInfo{
+    visibility: visible;
+    transform: translateY(60px);
+
+}
+
+.abAlbumPic:hover .abAlbumInfo{
+    visibility: visible;
+}
+.abInfoName {
+
+}
+.abInfoArtist {
+display: flex;
+justify-content: flex-end;
+margin-right: 15px;
+}
+
+.albumLink {
+    text-decoration: none;
+}
+.abAlbum.dropdown {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
