@@ -23,6 +23,7 @@ const AlbumPageContent = ({song}) => {
             <div className= "APCContainer">
                 <div className="APVideo">
                     <iframe src={urlMaker(song.songUrl)} allowFullScreen></iframe>
+                    {console.log(song.songUrl)}
 
                 </div>
                 <div className="APSongInfo">
