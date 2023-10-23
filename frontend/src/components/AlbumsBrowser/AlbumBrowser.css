@@ -82,7 +82,10 @@ justify-content: flex-end;
 margin-right: 15px;
 }
 
-.albumLink {
+.albumLink{
+    text-decoration: none;
+}
+.artistLink{
     text-decoration: none;
 }
 .abAlbum.dropdown {

@@ -1,0 +1,29 @@
+.artistPageContainer {
+    margin-top: 65px;
+    width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.artPHead {
+    padding: 20px;
+    padding-bottom: 30px;
+}
+.artPBody{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+.apbAlbum {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.apbLink {
+    text-decoration: none;
+}
+.apbAlbumPic > img {
+    width: 176px;
+    height: 176px;
+    border: 1px solid black;
+}

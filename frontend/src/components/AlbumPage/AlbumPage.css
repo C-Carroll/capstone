@@ -83,3 +83,6 @@
 .tabs:hover {
     background-color: #FF8FB1;
 }
+.apArtistLink {
+    text-decoration: none;
+}

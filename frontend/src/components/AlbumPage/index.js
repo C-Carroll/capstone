@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NavLink, Route, useParams } from "react-router-dom";
+import { NavLink, Route, useParams, Link } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import './AlbumPage.css'
 import { getAlbum, getSongsOnAlbum } from "../../store/music";
@@ -36,7 +36,9 @@ const AlbumsPage = () => {
                         <div className="apHeader">
                             <div className="aph1">
                                 <div className="apAlbumName">{album.albumName}</div>
-                                <div className="apBandName">{album.Artist.name}</div>
+                                <div className="apBandName">
+                                    <Link key="album.artistId" to={`/artist/${album.artistId}`} className='apArtistLink'>{album.Artist.name}</Link>
+                                </div>
                             </div>
                             <div className="apAlbumRating">{album.albumRating}</div>
                         </div>

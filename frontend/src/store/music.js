@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const ALBUMS = "albums/allAlbums"
 const SINGLEALBUM = "album/singleAlbum"
 const SONGS = "songs/songsOnAlbum"
+const ARTIST_ALBUMS = "aAlbums/artistAlbums"
 
 const allAlbums = (albums) => ({
     type: ALBUMS,
@@ -17,6 +18,11 @@ const singleAlbum = (album) => ({
 const songsOnAlbum = (songs) => ({
     type: SONGS,
     payload: songs
+})
+
+const artistAlbums = (aAlbums) => ({
+    type: ARTIST_ALBUMS,
+    payload: aAlbums
 })
 
 export const getAlbums = () => async (dispatch) => {
@@ -50,12 +56,23 @@ export const getSongsOnAlbum = (albumId) => async(dispatch) => {
     }
 }
 
+export const getArtistAlbums = (artistId) => async(dispatch) => {
+    const response = await csrfFetch(`/api/music/artist/${artistId}`)
+    if(response.ok){
+        const albums = await response.json()
+        console.log(albums)
+        dispatch(artistAlbums(albums))
+        return response
+    }
+}
+
 
 
 const initialState = {
     albums: [],
     album: null,
-    songs: []
+    songs: [],
+    artistAlbums: []
 }
 
 const musicReducer = (state = initialState, action) => {
@@ -74,7 +91,13 @@ const musicReducer = (state = initialState, action) => {
             return{
                 ...state,
                 songs: action.payload
+        };
+        case ARTIST_ALBUMS:
+            return{
+                ...state,
+                artistAlbums: action.payload
             }
+
         default: return state
     }
 }

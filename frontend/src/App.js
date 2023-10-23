@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import AlbumBrowser from "./components/AlbumsBrowser";
 import AlbumsPage from "./components/AlbumPage";
+import ArtistPage from "./components/ArtistPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path='/albums'>
           <AlbumBrowser />
+        </Route>
+        <Route path='/artist/:artistId'>
+          <ArtistPage />
         </Route>
       </Switch>}
     </>
