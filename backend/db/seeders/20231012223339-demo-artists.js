@@ -34,7 +34,7 @@ module.exports = {
         userId: 4
       },
       {
-        name: "Griz",
+        name: "GRiZ",
         description: "Funk isn't merely a genre. It's a state of mind. Such is the opinion of GRiZ, the North Detroit-raised musician who spends sunny days and neon-tinted nights in pursuit of good vibrations.",
         userId: 5
       },
