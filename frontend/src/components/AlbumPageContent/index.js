@@ -18,14 +18,18 @@ const AlbumPageContent = ({song}) => {
     console.log(song.songUrl, '<===== LOOK AT THIS')
     console.log(song, '<=== COMPARE TO THIS')
     return(
-        <div className= "APCContainer">
-            <div className="APVideo">
-                <iframe src={urlMaker(song.songUrl)} allowFullScreen></iframe>
+        <div>
+            {song && (
+            <div className= "APCContainer">
+                <div className="APVideo">
+                    <iframe src={urlMaker(song.songUrl)} allowFullScreen></iframe>
 
+                </div>
+                <div className="APSongInfo">
+                    {song.songName}
+                </div>
             </div>
-            <div className="APSongInfo">
-                {song.songName}
-            </div>
+            )}
         </div>
     )
 }
