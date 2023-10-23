@@ -5,6 +5,7 @@ import ProfileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import ArtistButton from "./ArtistButton";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -14,6 +15,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div>
+        <ArtistButton user={sessionUser}/>
         <ProfileButton user={sessionUser} />
       </div>
     );

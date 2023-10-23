@@ -100,8 +100,23 @@ router.delete("/delete/:userId", requireAuth, async (req, res) => {
     }
 })
 
+//GET artist based on user ID
+router.get('/user/:userId', async (req, res) => {
+    console.log('wicked')
+    if(req.user.id){
+        const artistFinder = await Artist.findOne({where: {userId: Number(req.params.userId)}})
+        if (artistFinder){
+            return res.status(200).json(artistFinder)
+        }else {
+            return res.status(404).json({message: 'user is not an artist'})
+        }
+    } else {
+        return res.status(404).json({message: 'user must be logged in'})
+    }
+})
+
 //GET artist info
-router.get('/:artistId', async (req, res) => {
+router.get('/:artistId', requireAuth, async (req, res) => {
     const artistFinder = await Artist.findByPk(Number(req.params.artistId))
     if(artistFinder !== null ){
         return res.status(200).json(artistFinder)
@@ -110,5 +125,7 @@ router.get('/:artistId', async (req, res) => {
         return res.status(404).json({message: 'Page Does Not Exist'})
     }
 })
+
+
 
 module.exports = router;
