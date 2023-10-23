@@ -15,6 +15,8 @@ const AlbumPageContent = ({song}) => {
         }
     }
 
+    console.log(song.songUrl, '<===== LOOK AT THIS')
+    console.log(song, '<=== COMPARE TO THIS')
     return(
         <div className= "APCContainer">
             <div className="APVideo">
