@@ -1,7 +1,8 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import ArtistButton from "./ArtistButton";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ function ProfileButton({ user }) {
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+
+
 
   return (
     <>

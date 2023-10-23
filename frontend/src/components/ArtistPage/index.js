@@ -32,8 +32,10 @@ const ArtistPage = () => {
                         {artist.description} *
                     </div>
                 </div>
+                <div className="artpbHead">Albums: </div>
                 <div className="artPBody">
-                    {albums && albums.length > 0 ? (albums.map((album) => (
+                    {albums && albums.length > 0 ?
+                    (albums.map((album) => (
                         <div className="apbAlbum">
                             <Link key={album.id} to={`/albums/${album.id}`} className='apbLink'>
                                 <div className="apbAlbumPic">
