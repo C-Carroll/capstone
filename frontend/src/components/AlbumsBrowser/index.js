@@ -18,7 +18,7 @@ const AlbumBrowser = () => {
     return(
         <div className="abContainer">
             <div className='abHeader'>
-                <h1>Albums</h1>
+                <h1>Explore</h1>
             </div>
             <div className="abAlbumsContainer">
                 {albums ? (
@@ -28,14 +28,15 @@ const AlbumBrowser = () => {
                             <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">
                             <div className='abAlbumPic'>
                                 <img className="abImg" src={album.albumPicture} alt={`Picture of ${album.albumName} cover art`}/>
-                                {console.log(album)}
                             </div>
                             </Link>
                             <div className="abAlbumInfo">
-                            <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">
-                                <div className="abInfoName">{album.albumName}</div>
-                            </Link>
-                                <div className="abInfoArtist">{album.Artist.name}</div>
+                                <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">
+                                    <div className="abInfoName">{album.albumName}</div>
+                                </Link>
+                                <Link key={album.artistId} to={`/artist/${album.artistId}`} className="artistLink">
+                                    <div className="abInfoArtist">{album.Artist.name}</div>
+                                </Link>
                             </div>
                         </div>
 
