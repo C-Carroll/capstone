@@ -1,0 +1,89 @@
+.newAlbumContainer {
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    width:1240px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.naFormContainer{
+    width: 1000px;
+}
+.addAlbum {
+    width: 750px;
+    margin:auto;
+}
+#nat {
+    display: flex;
+    justify-content: center;
+}
+#nai {
+    display: flex;
+    justify-items: space-between;
+}
+#nai > label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px
+}
+.addSongs {
+    margin-top: 25px;
+    border: 1px solid black;
+}
+#addSongText {
+    font-size: larger;
+}
+.nasTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    font-size: large;
+}
+.nasTop > input {
+    width: 400px;
+}
+.nasMid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    font-size: large;
+}
+.nasMid > input {
+    width: 400px;
+}
+.nasBot {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 8px;
+    font-size: large;
+}
+.naForm {
+    border-top: 1px solid black;
+    width: 500px;
+    margin: auto;
+}
+.naForm:first-child {
+    border: none;
+}
+.NAButt {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.newAlbumError {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    color: darkred;
+}
+.newSongError{
+    color: darkred;
+}

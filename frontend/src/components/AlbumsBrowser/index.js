@@ -10,11 +10,31 @@ const AlbumBrowser = () => {
     const dispatch = useDispatch()
     const albums = useSelector((state) => state.music.albums.Albums)
     console.log(albums)
+    const [shuffled, setShuffled] = useState([])
 
     useEffect(() => {
         dispatch(getAlbums())
     }, [dispatch])
 
+    let shuffledArr = [];
+
+    useEffect(() => {
+        if(albums){
+            let copy = [...albums]
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                setShuffled(array)
+
+            }
+            shuffleArray(copy)
+
+
+
+        }
+    },[albums])
     return(
         <div className="abContainer">
             <div className='abHeader'>
@@ -22,7 +42,7 @@ const AlbumBrowser = () => {
             </div>
             <div className="abAlbumsContainer">
                 {albums ? (
-                    albums.map((album) => (
+                    shuffled.map((album) => (
 
                         <div className='abAlbum dropdown' title={album.albumName}>
                             <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">

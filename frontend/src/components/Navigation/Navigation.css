@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400&family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;700&family=Major+Mono+Display&display=swap');
 .hidden {
     display: none
 }
@@ -51,3 +51,90 @@
   50% {font-size: 26px; color: #80489C;}
   100% {font-size: x-large; color: #432C7A;}
 }
+.navBarRight {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+
+    margin-right: 20px;
+}
+.proButt{
+    background-color:#FF8FB1;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+.profile-dropdown{
+    background-color:#FF8FB1;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: #FF8FB1 2px solid;
+    border-left: 1px solid #432C7A;
+    border-right: 1px solid #432C7A;
+    border-bottom: 1px solid #432C7A;
+}
+.profile-dropdown > li {
+    padding-top: 10px;
+    list-style: none;
+}
+.proButt > button {
+    width: 40px;
+    margin-left: 62px;
+    background-color: transparent;
+    border: none;
+    font-size: x-large;
+    color: #432C7A;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+.proButt > button:hover {
+    animation-name: colors;
+    animation-timing-function: ease-in-out;
+    -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;
+}
+
+@keyframes colors {
+    0% {color: #432C7A;}
+    25% {color: #80489C;}
+    50% {color: #FF8FB1; font-size: x-large;}
+    75% {color:#80489C;}
+    100% {color: #432C7A;}
+  }
+
+  .linkToAP {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: larger;
+    font-family: 'Farro', sans-serif;
+    font-weight: 700;
+    background-color: black;
+
+  }
+  #vfp {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    border: transparent solid 1px;
+    text-decoration: none;
+    background-color: #FF8FB1;
+
+  }
+
+  .linkToAP:hover #vfp{
+        /* background-color: #80489C;
+        color: #FF8FB1; */
+
+        border: #432C7A solid 1px;
+
+  }

@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div>
+      <div className="navBarRight">
         <ArtistButton user={sessionUser}/>
         <ProfileButton user={sessionUser} />
       </div>

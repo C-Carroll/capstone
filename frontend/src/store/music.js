@@ -25,6 +25,7 @@ const artistAlbums = (aAlbums) => ({
     payload: aAlbums
 })
 
+
 export const getAlbums = () => async (dispatch) => {
     const response = await csrfFetch("/api/music/");
     console.log(response)
@@ -63,6 +64,42 @@ export const getArtistAlbums = (artistId) => async(dispatch) => {
         console.log(albums)
         dispatch(artistAlbums(albums))
         return response
+    }
+}
+
+export const makeNewAlbum = (album) => async(dispatch) => {
+    const {albumName, albumPicture, albumPrice, isExplicit} = album;
+    const response = await csrfFetch("/api/music/album/new", {
+        method: "POST",
+        body: JSON.stringify({
+            albumName,
+            albumPicture,
+            albumPrice,
+            isExplicit,
+        })
+    })
+    if(response.ok){
+        const newAlbum = await response.json()
+        dispatch(singleAlbum(newAlbum))
+        return newAlbum
+    } else {throw new Error ('action failed')}
+}
+
+export const makeNewSong = (albumId, song) => async(dispatch) => {
+    const { songName, price, songUrl, isExplicit } = song
+    const response = await csrfFetch(`/api/music/song/${albumId}`, {
+        method: "POST",
+        body: JSON.stringify({
+            songName,
+            price,
+            songUrl,
+            isExplicit
+        })
+    })
+    if(response.ok){
+        const newSong = await response.json()
+        dispatch(songsOnAlbum(newSong))
+        return newSong
     }
 }
 

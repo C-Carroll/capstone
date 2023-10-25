@@ -29,3 +29,30 @@
     height: 176px;
     border: 1px solid black;
 }
+.artpbHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: x-large;
+
+}
+#addbutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95px;
+    border: 1px transparent solid;
+    border-radius: 10px;
+    padding: 7px;
+}
+#addbutton > i{
+    font-size: large;
+}
+
+#addbutton:hover {
+    background-color: #80489C;
+    border: #432C7A 1px solid;
+    color: #FF8FB1;
+    cursor: pointer;
+}

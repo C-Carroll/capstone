@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
+import {NavLink} from "react-router-dom"
 import * as sessionActions from '../../store/session';
+import OpenModalButton from "../OpenModalButton";
+import BecomeArtist from "../BecomeArtistModal";
+import "./Navigation.css"
 
 const ArtistButton = ({user}) => {
     const dispatch = useDispatch()
@@ -15,8 +19,12 @@ const ArtistButton = ({user}) => {
     },[dispatch])
 
     return(
-        <div>
-            {artist ? <div>{artist.id}</div> : <div>become an artist</div>  }
+        <div className="linkToAP">
+            {artist ?
+                <NavLink to={`/artist/${artist.id}`} id="vfp">{artist.name}</NavLink>
+                : <div>
+                    <NavLink to='/newArtist' className="vfp">Become an Artist</NavLink>
+                  </div>  }
         </div>
     )
 }
