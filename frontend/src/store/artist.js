@@ -28,6 +28,7 @@ export const getArtist = (artistId) => async(dispatch) => {
 
 export const newArtist = (artistInfo) => async(dispatch) => {
     const { name, description } = artistInfo
+    console.log('START')
     const response = await csrfFetch('/api/artist/newArtist', {
         method: 'POST',
         body: JSON.stringify({
@@ -35,27 +36,36 @@ export const newArtist = (artistInfo) => async(dispatch) => {
             description
         })
     })
+    console.log(response)
+    console.log('weeeWWWWOOOO')
     if (response.ok){
         const newCreator = await response.json()
-        dispatch(getArtist(newCreator))
+        console.log('weeeWWWWOOOO')
+        dispatch(singleArtist(newCreator))
         return newCreator
-    } else throw new Error ('action failed')
+    } else {
+        throw new Error ('action failed')
+        console.log('fail')
+    }
 }
 
 export const updateArtist = (artistId, artistInfo) => async(dispatch) => {
-    const { name, description } = artistInfo
-    const response = await csrfFetch(`/api/update/${artistId}`, {
+    const { newName, newDescription } = artistInfo
+    const response = await csrfFetch(`/api/artist/update/${artistId}`, {
         method: 'PUT',
         body: JSON.stringify({
-            name,
-            description
+            name: newName,
+            description: newDescription
         })
     })
     if(response.ok){
         const updatedArtist = await response.json()
         dispatch(singleArtist(updatedArtist))
         return response
-    } else throw new Error ('action failed')
+    } else {
+        throw new Error ('action failed')
+        console.log('fail')
+    }
 }
 
 export const removeArtist = (userId) => async(dispatch) => {

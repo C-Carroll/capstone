@@ -1,0 +1,79 @@
+(
+        <div className="newAlbumContainer">
+
+            <div className="naFormContainer">
+                <form onSubmit={handleSubmit}>
+                    <div className="addAlbum">
+                        <div id='nat'>
+                            <h2>New Album Info</h2>
+                        </div>
+
+
+                        <div id='nai'>
+                            <label> Album Name
+                                <input
+                                    type="text"
+                                    required
+                                    placeholder="Album Name"
+                                    value={albumName}
+                                    onChange={((e) => setAlbumName(e.target.value))}
+                                ></input>
+                            </label>
+
+                            <label> Album Picture
+                                <input
+                                    type="text"
+                                    required
+                                    placeholder="Album Picutre"
+                                    value={albumPicture}
+                                    onChange={((e) => setAlbumPicture(e.target.value))}
+                                ></input>
+                            </label>
+
+                            <label> Explicit
+                                <input
+                                    type='checkbox'
+                                    value={albumIsExplicit}
+                                    onClick={(e) => albumCheck()}
+                                ></input>
+                            </label>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div className='addSongs'>
+                        <div id='addSongText'>Add Songs to Album</div>
+                        <div className="addMap">
+                    {formVal.map((item, i) => (
+                        <div className="naForm">
+                            <div className="nasTop">
+                                <label>Song Name</label>
+                                <input required type="text" name='name' value={item.name || ''} onChange={(e) => onHandle(e, i)}></input>
+                            </div>
+
+                            <div className="nasMid">
+                                <label>Song Url</label>
+                                <input required type="text" name="url" value={item.url || ""} onChange={(e) => onHandle(e, i)}></input>
+                            </div>
+
+                            <div className="nasBot">
+                                <label>Explicit</label>
+                                    <input type="checkbox" name="isExplicit"  onClick={(e) => onCheck(e, i)}></input>
+                            </div>
+                            {i === 0 ? "" : <button onClick={() => onRemove(i)}>Remove Song Entry</button>}
+
+                        </div>
+                    ))}
+                    </div>
+                    </div>
+                    <div className="NAButt">
+                        <button onClick={addRow}>+ Song</button>
+                        <button type='submit'>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )

@@ -6,6 +6,8 @@ import Navigation from "./components/Navigation";
 import AlbumBrowser from "./components/AlbumsBrowser";
 import AlbumsPage from "./components/AlbumPage";
 import ArtistPage from "./components/ArtistPage";
+import BecomeArtist from "./components/BecomeArtistModal";
+import NewAlbum from "./components/NewAlbum";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,8 +24,14 @@ function App() {
         <Route path='/albums/:albumId'>
           <AlbumsPage />
         </Route>
+        <Route path="/newArtist">
+          <BecomeArtist />
+        </Route>
         <Route path='/albums'>
           <AlbumBrowser />
+        </Route>
+        <Route path='/newAlbum'>
+          <NewAlbum />
         </Route>
         <Route path='/artist/:artistId'>
           <ArtistPage />

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import './Navigation.css'
 import ArtistButton from "./ArtistButton";
 
 function ProfileButton({ user }) {
@@ -38,7 +39,7 @@ function ProfileButton({ user }) {
 
 
   return (
-    <>
+    <div className="proButt">
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
@@ -50,7 +51,7 @@ function ProfileButton({ user }) {
           <button onClick={logout}>Log Out</button>
         </li>
       </ul>
-    </>
+    </div>
   );
 }
 
