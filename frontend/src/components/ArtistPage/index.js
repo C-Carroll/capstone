@@ -9,6 +9,7 @@ import AlbumPageContent from "../AlbumPageContent";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import OpenModalButton from "../OpenModalButton";
 import EditProfileModal from "../EditProfileModal";
+import DeleteArtistModal from "../DeleteArtistModal";
 
 const ArtistPage = () => {
     const dispatch = useDispatch()
@@ -23,16 +24,24 @@ const ArtistPage = () => {
     useEffect(() => {
         dispatch(getArtist(artistId))
         dispatch(getArtistAlbums(artistId))
-    }, [dispatch])
+    }, [dispatch, artistId])
 
     const editButt = (artistId) => {
         if(user.id === artist.userId){
             return (
                 <div>
-                    <OpenModalButton
-                    buttonText="edit profile"
-                    modalComponent ={<EditProfileModal artist={artist}/>}
-                    />
+                    <div className='editButtButton'>
+                        <OpenModalButton
+                        buttonText="Edit Profile"
+                        modalComponent ={<EditProfileModal artist={artist}/>}
+                        />
+                    </div>
+                    <div className="editButtDelete">
+                        <OpenModalButton
+                        buttonText='Delete'
+                        modalComponent={<DeleteArtistModal user={user}/>}
+                        />
+                    </div>
                 </div>
             )
         }

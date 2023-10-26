@@ -132,7 +132,7 @@ router.get("/album/:albumId", async (req, res) => {
     const albumFinder = await Album.findByPk(Number(req.params.albumId), {
         include: {
             model: Artist,
-            attributes: ["name"]
+            attributes: ["name", "userId"]
         }
     })
     if (!albumFinder) {res.status(404).json({message: "Album Not Found"})}

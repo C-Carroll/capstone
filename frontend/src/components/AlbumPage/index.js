@@ -5,6 +5,7 @@ import { useDispatch} from "react-redux";
 import './AlbumPage.css'
 import { getAlbum, getSongsOnAlbum } from "../../store/music";
 import AlbumPageContent from "../AlbumPageContent";
+import ReviewComponet from "../ReviewsComp";
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
@@ -40,7 +41,7 @@ const AlbumsPage = () => {
                                     <Link key="album.artistId" to={`/artist/${album.artistId}`} className='apArtistLink'>{album.Artist.name}</Link>
                                 </div>
                             </div>
-                            <div className="apAlbumRating">{album.albumRating}</div>
+                            <div className="apAlbumRating">{!album.albumRating ? <>No Reviews</> : album.albumRating}</div>
                         </div>
                         <div className="apMain">
                             <div className="apMainTabs">
@@ -61,6 +62,9 @@ const AlbumsPage = () => {
                                     </div>
                                 )))
                                 :<div>... loading</div>}
+                            </div>
+                            <div className="APRevs">
+                                    <ReviewComponet album={album} />
                             </div>
                         </div>
                     </div>
