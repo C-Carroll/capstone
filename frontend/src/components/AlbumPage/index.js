@@ -41,7 +41,10 @@ const AlbumsPage = () => {
                                     <Link key="album.artistId" to={`/artist/${album.artistId}`} className='apArtistLink'>{album.Artist.name}</Link>
                                 </div>
                             </div>
-                            <div className="apAlbumRating">{!album.albumRating ? <>No Reviews</> : album.albumRating}</div>
+                            <div className="apAlbumRating">
+                            <i className='fa-star fa-solid filled'></i>
+                                {!album.albumRating ? <>No Reviews</> : album.albumRating}
+                            </div>
                         </div>
                         <div className="apMain">
                             <div className="apMainTabs">
