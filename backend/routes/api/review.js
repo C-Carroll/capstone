@@ -59,6 +59,63 @@ router.delete('/delete/:reviewId', requireAuth, async (req, res) => {
     }
 })
 
+//Update Review
+router.put('/update/:reviewId', validRev, requireAuth, async (req, res) => {
+    const revId = Number(req.params.reviewId)
+    const findRev = await Review.findOne({
+        where: {
+            userId: req.user.id,
+            id: revId
+        }
+    })
+    const albumId = findRev.albumId
+    if(!findRev){res.status(404).json({message: 'review not found'})}
+    else {
+        let updatedRev;
+        const { rating, ratingDescription } = req.body;
+        try {
+            const updated = await findRev.update({
+                rating,
+                ratingDescription
+            })
+            let uRev = {
+                id: updated.id,
+                userId: updated.userId,
+                albumId: updated.albumId,
+                rating: updated.rating,
+                ratingDescription: updated.ratingDescription
+            }
+            let revCount = await Review.count({
+                where: {
+                    albumId: albumId,
+                    rating: {
+                        [Op.between]: [1, 5]
+                    }
+                }
+            })
+            let revSum = await Review.sum('rating', {
+                where: {
+                    albumId: albumId,
+                    rating: {
+                        [Op.between]: [1, 5]
+                    }
+                }
+            })
+            let avg = revSum / revCount
+            const albumRatingUpdate = await Album.update(
+                {albumRating: avg},
+                {where: {id: albumId}}
+            )
+            res.status(201).json(uRev)
+
+
+        }catch(error){
+            console.error("Error creating review:", error);
+            res.status(500).json({ message: "Error creating Review" });
+        }
+    }
+})
+
 //Post review
 router.post('/new/:albumId', validRev, requireAuth, async (req, res) => {
     const findAlbum = await Album.findByPk(Number(req.params.albumId), {

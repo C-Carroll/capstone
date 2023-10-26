@@ -45,6 +45,8 @@
     border: 1px transparent solid;
     border-radius: 10px;
     padding: 7px;
+    color: #432C7A ;
+    border: #432C7A 1px solid;
 }
 #addbutton > i{
     font-size: large;
