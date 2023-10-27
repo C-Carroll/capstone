@@ -5,12 +5,16 @@ import { useDispatch} from "react-redux";
 import './APContent.css'
 
 
+//https://youtu.be/dQw4w9WgXcQ?feature=shared
+
 const AlbumPageContent = ({song}) => {
 
     const urlMaker = (url) => {
         if(url.split('=')[0].endsWith('watch?v')){
             return `https://www.youtube.com/embed/${url.split('=')[1]}`
         } else if(url.split('=')[0].endsWith('?si')){
+            return `https://www.youtube.com/embed/${(url.split('=')[0].split('?')[0].split('/').slice(-1))}`
+        } else if(url.split('=')[0].endsWith('feature')){
             return `https://www.youtube.com/embed/${(url.split('=')[0].split('?')[0].split('/').slice(-1))}`
         }
     }
