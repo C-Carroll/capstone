@@ -19,7 +19,7 @@ const AlbumsPage = () => {
     useEffect(() => {
         dispatch(getAlbum(albumId))
         dispatch(getSongsOnAlbum(albumId))
-    }, [dispatch])
+    }, [dispatch, albumId])
 
     const toggleTab = (id) => {
         setToggleState(id)
