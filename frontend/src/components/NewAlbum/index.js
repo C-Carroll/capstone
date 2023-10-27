@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import './NewAlbum.css'
-import { makeNewAlbum, makeNewSong } from "../../store/music";
+import { makeNewAlbum, makeNewSong, getAlbum, getSongsOnAlbum } from "../../store/music";
 import * as sessionActions from '../../store/session';
 
 const NewAlbum = () => {
@@ -156,7 +156,10 @@ const NewAlbum = () => {
                         }
                     }
                 }
-                history.push(`/albums/${albumId}`)
+
+                await (dispatch(getAlbum(albumId)))
+                return await (dispatch(getSongsOnAlbum(albumId)))
+                .then(history.push(`/albums/${albumId}`))
             }catch(error){
                 console.log("errors", errors)
             }
