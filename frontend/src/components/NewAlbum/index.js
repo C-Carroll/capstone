@@ -16,6 +16,7 @@ const NewAlbum = () => {
     const [albumIsExplicit, setAlbumIsExplicit]= useState(false)
     const [isArt, setIsArt] = useState(false)
     const [errors, setErrors] = useState({})
+    const [on, setOn] = useState(true)
 
 
 
@@ -105,7 +106,10 @@ const NewAlbum = () => {
         return valid
     }
 
-
+    const buttOn = () => {
+        if (on === true) return false
+        else if (on === false) return true
+    }
 
 
 
@@ -134,6 +138,7 @@ const NewAlbum = () => {
             setErrors(errs)
         }else{
             try{
+                setOn(false)
                 let albumPrice = formVal.length
                 const albumInfo = {
                     albumName,
@@ -256,7 +261,7 @@ const NewAlbum = () => {
                     </div>
                     <div className="NAButt">
                         <button onClick={addRow}>+ Song</button>
-                        <button type='submit'>Submit</button>
+                        <button disabled={buttOn()} type='submit'>Submit</button>
                     </div>
                 </form>
             </div>
