@@ -1,0 +1,31 @@
+.delRevBut >button {
+    background-color: #FF8FB1;
+    border: 1px solid black
+}
+.delRevBut >button:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+}
+.revs{
+    border-bottom: 1px solid black;
+    padding: 8px;
+}
+.editNDelButt  {
+padding: 4px;
+}
+.revHead{
+    padding: 10px;
+}
+.ooof{
+    padding: 10px;
+}
+.createRevButt >button {
+    background-color: #FF8FB1;
+    border: 1px solid black
+}
+.createRevButt >button:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+}

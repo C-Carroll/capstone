@@ -1,0 +1,34 @@
+.loginCont {
+    background-color: #FCE2DB;
+    margin-top: 0;
+    height: 150px;
+    width: 600px;
+    border-radius:15px;
+}
+.loginCont > h1 {
+    margin: auto;
+    margin-left: 30px;
+}
+
+.logButt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.cred {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.butts {
+    background-color: #FF8FB1;
+    border: 1px solid black
+}
+
+.butts:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+}

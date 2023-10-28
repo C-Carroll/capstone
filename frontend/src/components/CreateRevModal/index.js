@@ -5,6 +5,7 @@ import { useDispatch} from "react-redux";
 import { getReviews, newReview, updatedReview, removeRev } from "../../store/review";
 import { useModal } from "../../context/Modal";
 import { getAlbum } from "../../store/music";
+import './newRev.css'
 
 const CreateRevModal = ({album}) => {
     const dispatch = useDispatch()
@@ -55,7 +56,7 @@ const CreateRevModal = ({album}) => {
     }
 
     return (
-        <div>
+        <div >
             <div className="CRHead">
                 What did you think of this album?
             </div>
@@ -115,6 +116,7 @@ const CreateRevModal = ({album}) => {
                     </div>
 
                     <button type="submit">Submit Review</button>
+
                 </form>
             </div>
         </div>

@@ -1,0 +1,27 @@
+.CRForm {
+ padding: 10px;
+}
+.CRHead {
+    padding: 10px;
+}
+.st {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.revTxt > textarea {
+    width: 400px;
+    height: 100px;
+}
+.CRForm > form> button {
+    background-color: #FF8FB1;
+    border: 1px solid black;
+    border-radius:15px;
+}
+.CRForm > form> button:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+    border-radius:15px;
+}

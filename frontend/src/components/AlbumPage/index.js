@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NavLink, Route, useParams, Link } from "react-router-dom";
+import { NavLink, Route, useParams, Link, useHistory } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import './AlbumPage.css'
 import { getAlbum, getSongsOnAlbum } from "../../store/music";
@@ -9,9 +9,11 @@ import ReviewComponet from "../ReviewsComp";
 
 const AlbumsPage = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { albumId } = useParams()
     const album = useSelector((state) => state.music.album)
     const songs = useSelector((state) => state.music.songs.Songs)
+    const user = useSelector((state) => state.session.user)
     console.log(album)
 
     const [toggleState, setToggleState] = useState(1)
@@ -20,6 +22,10 @@ const AlbumsPage = () => {
         dispatch(getAlbum(albumId))
         dispatch(getSongsOnAlbum(albumId))
     }, [dispatch, albumId])
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     const toggleTab = (id) => {
         setToggleState(id)
@@ -30,7 +36,8 @@ const AlbumsPage = () => {
         }
     }, [songs, setToggleState])
 
-    return (
+    if (!user) return history.push('/')
+    else return (
         <div>
             {album && songs && (
                     <div className="apContainer">
@@ -66,10 +73,11 @@ const AlbumsPage = () => {
                                 )))
                                 :<div>... loading</div>}
                             </div>
-                            <div className="APRevs">
+
+                        </div>
+                        <div className="APRevs">
                                     <ReviewComponet album={album} />
                             </div>
-                        </div>
                     </div>
                 )
             }

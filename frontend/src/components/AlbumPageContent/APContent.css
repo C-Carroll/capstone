@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;700&family=Major+Mono+Display&display=swap');
 .APVideo  {
     display: flex;
     justify-content: center;
@@ -8,4 +9,13 @@
     width: 980px;
     height: 551px;
     border: none;
+}
+.APSongInfo {
+    padding: 5px;
+    padding-left:10px;
+    font-family: 'Major Mono Display', monospace;
+    font-weight: 400;
+    font-size: 3em;
+
+
 }

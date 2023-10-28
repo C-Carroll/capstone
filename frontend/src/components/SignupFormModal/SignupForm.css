@@ -1,0 +1,13 @@
+.signupCo > form{
+    display: flex;
+    flex-direction: column;
+}
+.signupCo > form > label {
+    padding: 10px;
+}
+.signupCo > form > label >input {
+padding-left:10px;
+}
+.signupCo {
+    padding: 10px
+}

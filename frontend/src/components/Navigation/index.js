@@ -34,10 +34,11 @@ function Navigation({ isLoaded }) {
     );
   }
 
-  return (
+  // if (!sessionUser) return null
+   return (
     <div className="Nav">
       <div className="navHome">
-        <NavLink exact to="/albums" id='homeLink'>
+        <NavLink exact to="/" id='homeLink'>
           Sound Voyage
         </NavLink>
       </div>

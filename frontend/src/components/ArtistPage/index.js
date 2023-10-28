@@ -29,7 +29,7 @@ const ArtistPage = () => {
     const editButt = (artistId) => {
         if(user.id === artist.userId){
             return (
-                <div>
+                <div className="butCotn">
                     <div className='editButtButton'>
                         <OpenModalButton
                         buttonText="Edit Profile"
@@ -38,7 +38,7 @@ const ArtistPage = () => {
                     </div>
                     <div className="editButtDelete">
                         <OpenModalButton
-                        buttonText='Delete'
+                        buttonText='Delete Profile'
                         modalComponent={<DeleteArtistModal user={user}/>}
                         />
                     </div>
@@ -64,8 +64,8 @@ const ArtistPage = () => {
     }
 
 
-
-    return (
+    if (!user) return history.push('/')
+    else return (
         <div className="artistPageContainer">
             {user ?
                 <div>
