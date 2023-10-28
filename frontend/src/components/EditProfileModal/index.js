@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom"
 import { useModal } from "../../context/Modal";
 import { updateArtist } from "../../store/artist";
-
+import './EP.css'
 const EditProfileModal = (artist) => {
     const { closeModal } = useModal()
     console.log(artist)
@@ -43,7 +43,10 @@ const EditProfileModal = (artist) => {
     }
 
     return(
-        <div>
+        <div className="editCont">
+
+               <h1>Edit Profile</h1>
+
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:

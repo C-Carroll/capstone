@@ -8,6 +8,7 @@ import AlbumsPage from "./components/AlbumPage";
 import ArtistPage from "./components/ArtistPage";
 import BecomeArtist from "./components/BecomeArtistModal";
 import NewAlbum from "./components/NewAlbum";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded &&
       <Switch>
+        <Route exact path='/'>
+            <LandingPage />
+        </Route>
         <Route path='/albums/:albumId'>
           <AlbumsPage />
         </Route>

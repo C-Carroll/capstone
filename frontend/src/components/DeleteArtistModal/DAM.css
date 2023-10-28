@@ -2,5 +2,19 @@
     background-color: red;
 }
 #can:hover {
-    background-color: aqua;
+    background-color: #FF8FB1;
+}
+.buttsss {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+#del, #can {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.delHed {
+    padding: 10px;
 }

@@ -138,3 +138,12 @@
         border: #432C7A solid 1px;
 
   }
+
+  #sixty {
+    background-color: #FCE2DB;
+    border: 1px solid black
+  }
+  #sixty:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;}

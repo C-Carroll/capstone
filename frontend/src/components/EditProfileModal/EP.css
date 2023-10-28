@@ -1,0 +1,27 @@
+.editCont > form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.editCont > form > label > textarea {
+ width: 400px;
+ height: 200px
+}
+.editCont > form > label {
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+}
+.editCont > form > button {
+    background-color: #FF8FB1;
+    border: 1px solid black;
+    border-radius:15px;
+}
+
+
+.editCont > form > button:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+    border-radius:15px;
+}

@@ -62,7 +62,7 @@ const ReviewComponet = ({album}) => {
     const deleteButt = (userId, rev) => {
         if (userId === rev.userId){
             return(
-                <div className delRevBut>
+                <div className='delRevBut'>
                     <OpenModalButton
                     buttonText='Delete Review'
                     modalComponent={<DeleteRevModal review={rev} />}
@@ -75,7 +75,7 @@ const ReviewComponet = ({album}) => {
     const editRevButt = (userId, rev) => {
         if (userId === rev.userId){
             return(
-                <div className delRevBut>
+                <div className='delRevBut'>
                     <OpenModalButton
                     buttonText='Edit Review'
                     modalComponent={<EditRevModal review={rev} />}
@@ -87,21 +87,21 @@ const ReviewComponet = ({album}) => {
 
 
     return(
-        <div>
-            <div>
+        <div >
+            <div className='ooof'>
                 <CreateRevB />
             </div>
-            {reviews ?
+            {reviews.length ?
                 <div>
 
                     <div className='revHead'>
-                        Reviews
+                        Reviews:
                     </div>
 
 
                     <div className='revBod'>
                         {reviews.sort((a,b) => b.id - a.id).map((rev) => (
-                            <div>
+                            <div className='revs'>
                                 <div className='revUserInfo'>
                                     {rev.User.firstName} {rev.User.lastName.slice(0,1)}
                                 </div>

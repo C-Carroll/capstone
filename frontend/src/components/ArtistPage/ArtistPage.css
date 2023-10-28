@@ -58,3 +58,28 @@
     color: #FF8FB1;
     cursor: pointer;
 }
+.editButtButton >button{
+    background-color: #FF8FB1;
+    border: 1px solid black
+}
+
+.editButtButton >button:hover{
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+}
+.editButtDelete >button{
+    background-color: #FF8FB1;
+    border: 1px solid black
+}
+
+.editButtDelete >button:hover{
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+}
+.butCotn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

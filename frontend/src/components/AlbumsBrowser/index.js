@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NavLink, Route, useParams, Link } from "react-router-dom";
+import { NavLink, Route, useParams, Link, useHistory } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import './AlbumBrowser.css'
 import { getAlbums } from "../../store/music";
@@ -8,7 +8,9 @@ import { getAlbums } from "../../store/music";
 
 const AlbumBrowser = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const albums = useSelector((state) => state.music.albums.Albums)
+    const user = useSelector((state) => state.session.user)
     console.log(albums)
     const [shuffled, setShuffled] = useState([])
 
@@ -37,7 +39,8 @@ const AlbumBrowser = () => {
 
         }
     },[albums])
-    return(
+    if (!user) {return history.push('/')}
+    else return(
         <div className="abContainer">
             <div className='abHeader'>
                 <h1>Explore</h1>

@@ -5,7 +5,6 @@ import { useDispatch} from "react-redux";
 import './APContent.css'
 
 
-//https://youtu.be/dQw4w9WgXcQ?feature=shared
 
 const AlbumPageContent = ({song}) => {
 

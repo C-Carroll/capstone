@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;700&family=Major+Mono+Display&display=swap');
 .newAlbumContainer {
     margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
+    border-radius: 15px;
+    border: 1px solid #432C7A;
     width:1240px;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Farro', sans-serif;
+    color: #432C7A;
 }
 .naFormContainer{
     width: 1000px;
@@ -20,9 +24,18 @@
     display: flex;
     justify-content: center;
 }
+#an {
+    width: 200px;
+}
+#ap {
+    width: 200px;
+}
 #nai {
     display: flex;
     justify-items: space-between;
+    border: solid 1px #432C7A;
+    border-radius: 15px;
+    padding: 10px;
 }
 #nai > label {
     display: flex;
@@ -32,10 +45,13 @@
 }
 .addSongs {
     margin-top: 25px;
-    border: 1px solid black;
+    border: 1px solid #432C7A;
+    border-radius: 15px;
 }
 #addSongText {
     font-size: larger;
+    padding: 15px;
+    padding-bottom: 5px;
 }
 .nasTop {
     display: flex;
@@ -65,7 +81,7 @@
     font-size: large;
 }
 .naForm {
-    border-top: 1px solid black;
+    border-top: 1px solid #432C7A;
     width: 500px;
     margin: auto;
 }
@@ -86,4 +102,50 @@
 }
 .newSongError{
     color: darkred;
+}
+#removeS {
+    background-color: #FF8FB1;
+    padding: 5px;
+    border: 1px solid #432C7A;
+    border-radius: 8px;
+    font-size: medium;
+}
+#remSB{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 45px;
+    padding-bottom: 10px;
+}
+#removeS:hover {
+    background-color: darkred;
+    color: #FF8FB1;
+    cursor: pointer;
+}
+#addSon{
+    background-color: #FF8FB1;
+    padding: 5px;
+    font-size: large;
+    border: 1px solid #432C7A;
+    border-radius: 8px;
+    transition: ease-in-out .1s;
+}
+#subAlbBut{
+    background-color: #FF8FB1;
+    padding: 5px;
+    font-size: large;
+    border: 1px solid #432C7A;
+    border-radius: 8px;
+    transition: ease-in-out .2s;
+}
+#subAlbBut:hover {
+    background-color: #432C7A;
+    color: #FF8FB1;
+    cursor: pointer;
+    border-radius: 12px;
+}
+#addSon:hover {
+    background-color: #80489C;
+    color: #FF8FB1;
+    cursor: pointer;
+
 }

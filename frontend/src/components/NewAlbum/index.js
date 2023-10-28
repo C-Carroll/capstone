@@ -197,6 +197,7 @@ const NewAlbum = () => {
                         <div id='nai'>
                             <label> Album Name
                                 <input
+                                    id='an'
                                     type="text"
                                     required
                                     placeholder="Album Name"
@@ -208,6 +209,7 @@ const NewAlbum = () => {
 
                             <label> Album Picture
                                 <input
+                                    id='ap'
                                     type="text"
                                     required
                                     placeholder="Album Picutre"
@@ -253,15 +255,16 @@ const NewAlbum = () => {
                                 <label>Explicit</label>
                                     <input type="checkbox" name="isExplicit"  onClick={(e) => onCheck(e, i)}></input>
                             </div>
-                            {i === 0 ? "" : <button onClick={() => onRemove(i)}>Remove Song Entry</button>}
-
+                            <div id='remSB'>
+                            {i === 0 ? "" : <button onClick={() => onRemove(i)} id='removeS'>Remove Song Entry</button>}
+                            </div>
                         </div>
                     ))}
                     </div>
                     </div>
                     <div className="NAButt">
-                        <button onClick={addRow}>+ Song</button>
-                        <button disabled={buttOn()} type='submit'>Submit</button>
+                        <button id='addSon' onClick={addRow}>+ Song</button>
+                        <button id="subAlbBut" disabled={buttOn()} type='submit'>Submit</button>
                     </div>
                 </form>
             </div>
