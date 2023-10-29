@@ -60,7 +60,10 @@
 }
 .editButtButton >button{
     background-color: #FF8FB1;
-    border: 1px solid black
+    border: 1px solid black;
+    padding: 8px;
+    font-family: 'Farro', sans-serif;
+    border-radius: 2px
 }
 
 .editButtButton >button:hover{
@@ -70,7 +73,10 @@
 }
 .editButtDelete >button{
     background-color: #FF8FB1;
-    border: 1px solid black
+    border: 1px solid black;
+    padding: 8px;
+    font-family: 'Farro', sans-serif;
+    border-radius: 2px
 }
 
 .editButtDelete >button:hover{
