@@ -106,7 +106,7 @@ const ReviewComponet = ({album}) => {
                                     {rev.User.firstName} {rev.User.lastName.slice(0,1)}
                                 </div>
                                 <div className='revRating'>
-                                    {rev.rating}
+                                <i className='fa-star fa-solid filled'></i>{rev.rating}
                                 </div>
                                 <div className='revRatingDesc'>
                                     {rev.ratingDescription}

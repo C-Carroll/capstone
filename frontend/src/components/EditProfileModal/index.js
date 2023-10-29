@@ -22,9 +22,9 @@ const EditProfileModal = (artist) => {
         let err = {}
 
         if(newName.length < 2 ){
-            err.name = "name must be longer than 2 characters"
+            err.name = "Name must be longer than 2 characters"
         }else if (newDescription.length < 5){
-            err.description = "description must be longer than 5 characters"
+            err.description = "Description must be longer than 5 characters"
         }
 
         if(Object.values(err).length > 0){
@@ -55,6 +55,7 @@ const EditProfileModal = (artist) => {
                         placeholder={`${name}`}
                         onChange={((e) => setNewName(e.target.value))}
                     ></input>
+                    {errors.name && <div>{errors.name}</div>}
                 </label>
                 <label>
                     Description:
@@ -62,7 +63,7 @@ const EditProfileModal = (artist) => {
                     placeholder={`${description}`}
                     onChange={((e) => setNewDescription(e.target.value))}
                     ></textarea>
-
+                    {errors.description && <div>{errors.description}</div>}
                 </label>
                 <button type="submit">Update</button>
             </form>
