@@ -50,7 +50,7 @@ const AlbumsPage = () => {
                             </div>
                             <div className="apAlbumRating">
                             <i className='fa-star fa-solid filled'></i>
-                                {!album.albumRating ? <>No Reviews</> : album.albumRating}
+                                {(!album.albumRating || isNaN(album.albumRating)) ? <>No Reviews</> : album.albumRating}
                             </div>
                         </div>
                         <div className="apMain">

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { newArtist } from "../../store/artist";
 import { useHistory } from "react-router-dom"
+import './BCA.css'
 
 
 const BecomeArtist = () => {
@@ -25,9 +26,9 @@ useEffect(() => {
         let err = {}
 
         if(name.length < 2 ){
-            err.name = "name must be longer than 2 characters"
+            err.name = "Name must be longer than 2 characters"
         }else if (description.length < 5){
-            err.description = "description must be longer than 5 characters"
+            err.description = "Description must be longer than 5 characters"
         }
 
         if(Object.values(err).length > 0){
@@ -51,7 +52,7 @@ useEffect(() => {
     return(
         <div className="becomeArtistContainer">
             <h1>Become an Artist</h1>
-            <div className='BAFormContainer'>
+
                 <form onSubmit={handleSubmission}>
                     <label>
                         Artist Name:
@@ -61,6 +62,7 @@ useEffect(() => {
                             onChange={((e) => setName(e.target.value))}
                             required
                         />
+                        {errors.name && <div className="uhoh">{errors.name}</div>}
                     </label>
                     <label>
                         Artist Description:
@@ -70,13 +72,14 @@ useEffect(() => {
                             onChange={((e) => setDescription(e.target.value))}
                             required
                         />
+                        {errors.description && <div className="uhoh">{errors.description}</div>}
                     </label>
                     {errors.credential && (
                         <p>{errors.credential}</p>
                     )}
                     <button type='submit'>Become Artist</button>
                 </form>
-            </div>
+
         </div>
     )
 }

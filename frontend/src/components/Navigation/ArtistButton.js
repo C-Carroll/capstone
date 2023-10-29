@@ -23,7 +23,7 @@ const ArtistButton = ({user}) => {
             {artist ?
                 <NavLink to={`/artist/${artist.id}`} id="vfp">{artist.name}</NavLink>
                 : <div>
-                    <NavLink to='/newArtist' className="vfp">Become an Artist</NavLink>
+                    <NavLink to='/newArtist' id="vfp">Become an Artist</NavLink>
                   </div>  }
         </div>
     )
