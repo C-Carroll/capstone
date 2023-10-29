@@ -72,6 +72,7 @@
     margin-top: 10px;
     padding-top: 5px;
     border-top: #FF8FB1 2px solid;
+
     border-left: 1px solid #432C7A;
     border-right: 1px solid #432C7A;
     border-bottom: 1px solid #432C7A;
@@ -79,6 +80,14 @@
 .profile-dropdown > li {
     padding-top: 10px;
     list-style: none;
+    font-family: 'Farro', sans-serif;
+    font-size: small;
+}
+.profile-dropdown > li > button {
+    font-family: 'Farro', sans-serif;
+    border-radius: 2px;
+    padding:4px;
+    margin-bottom: 5px;
 }
 .proButt > button {
     width: 40px;
@@ -146,4 +155,5 @@
   #sixty:hover {
     background-color: #80489C;
     color: #FF8FB1;
-    cursor: pointer;}
+    cursor: pointer;
+}
