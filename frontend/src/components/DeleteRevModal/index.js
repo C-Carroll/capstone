@@ -30,8 +30,8 @@ const DeleteRevModal = ({review}) => {
     return (
         <div>
             <div className="delHed">
-                Are You Sure You Want to Delete Your Artist Profile?<br />
-                All Music Will Be Lost Into The Void...
+                Are You Sure You Want to Delete Your Review?
+
             </div>
             <div className="buttsss">
                 <div id='del' onClick={(e) => {deleteReview(e, review)}}>
