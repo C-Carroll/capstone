@@ -5,11 +5,13 @@ import { useDispatch} from "react-redux";
 import './NewAlbum.css'
 import { makeNewAlbum, makeNewSong, getAlbum, getSongsOnAlbum } from "../../store/music";
 import * as sessionActions from '../../store/session';
+import addSong from "../../context/addSong";
+const {v4: uuidv4} = require('uuid')
 
 const NewAlbum = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const [formVal, setFormVal] = useState([{name:'', url:'', isExplicit: false}])
+    const [formVal, setFormVal] = useState([{name:'', url:'', isExplicit: false, file: null}])
     const [checked, setChecked] = useState([])
     const [albumName, setAlbumName]= useState('')
     const [albumPicture, setAlbumPicture]= useState('')
@@ -17,6 +19,7 @@ const NewAlbum = () => {
     const [isArt, setIsArt] = useState(false)
     const [errors, setErrors] = useState({})
     const [on, setOn] = useState(true)
+    // const [file, setFile] = useState('')
 
 
 
@@ -40,7 +43,7 @@ const NewAlbum = () => {
     }
 
     const addRow = () => {
-        setFormVal([...formVal, {name:'', url:'', isExplicit: false}])
+        setFormVal([...formVal, {name:'', url:'', isExplicit: false, sfile: null}])
     }
     const onRemove = (i) => {
         const newForm = [...formVal]
@@ -51,6 +54,13 @@ const NewAlbum = () => {
         let newForm = [...formVal]
         newForm[i][e.target.name] = (e.target.value)
         setFormVal(newForm)
+    }
+    const onHanFile = (e, i) => {
+        let file = e.target.files[0]
+        let newForm = [...formVal]
+        newForm[i][e.target.name] = file
+        setFormVal(newForm)
+        console.log(file)
     }
     const onCheck = (e, i) => {
         if(checked.includes(i)){
@@ -90,16 +100,21 @@ const NewAlbum = () => {
                 data[i].nameCheck = ''
             }
 
-            if(data[i].url === ''){
-                data[i].urlCheck = 'Url is required'
-                valid = false
+            if(!data[i].url === ''){
+
+                if (!(/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/gm.test(data[i].url))){
+                     data[i].urlCheck = 'Url must be from youtube'
+                     valid = false
+                } else {
+                     data[i].urlCheck = ''
+                }
             }
-            else if (!(/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/gm.test(data[i].url))){
-                data[i].urlCheck = 'Url must be from youtube'
-                valid = false
-            } else {
+            else {
                 data[i].urlCheck = ''
             }
+
+
+
         }
 
         setFormVal(data)
@@ -152,12 +167,25 @@ const NewAlbum = () => {
                     const data = [...formVal]
                     for(let i = 0; i < data.length; i++){
                         if(data[i]){
+                            const ud = uuidv4()
+                            console.log('UID', ud)
+                            const exam = {
+                                songName: data[i].name,
+                                price: 1,
+                                songUrl: data[i].url,
+                                isExplicit: data[i].isExplicit,
+                                uid: ud
+                            }
+                            console.log(exam)
+                            await addSong(data[i].name, data[i].sfile)
                             await dispatch(makeNewSong(albumId, {
                                 songName: data[i].name,
                                 price: 1,
                                 songUrl: data[i].url,
-                                isExplicit: data[i].isExplicit
+                                isExplicit: data[i].isExplicit,
+                                uid: ud
                             }))
+
                         }
                     }
                 }
@@ -247,8 +275,12 @@ const NewAlbum = () => {
 
                             <div className="nasMid">
                                 <label>Song Url</label>
-                                <input required type="text" name="url" value={item.url || ""} onChange={(e) => onHandle(e, i)}></input>
+                                <input type="text" name="url" value={item.url || ""} onChange={(e) => onHandle(e, i)}></input>
                                 <div className="newSongError">{item.urlCheck}</div>
+                            </div>
+                            <div>
+                                <label>Song File</label>
+                                <input type='file' name="sfile" value={item.file || null} onChange={(e) => onHanFile(e, i)} accept='audio/mp3'></input>
                             </div>
 
                             <div className="nasBot">

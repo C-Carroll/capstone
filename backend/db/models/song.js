@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     songName: DataTypes.STRING,
     price: DataTypes.INTEGER,
     songUrl: DataTypes.STRING,
-    isExplicit: DataTypes.BOOLEAN
+    isExplicit: DataTypes.BOOLEAN,
+    uid: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Song',

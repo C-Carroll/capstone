@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ModalProvider, Modal } from "./context/Modal";
 import App from "./App";
 
+
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
@@ -34,6 +35,7 @@ function Root() {
           <App />
           <Modal />
         </BrowserRouter>
+
       </Provider>
     </ModalProvider>
   );

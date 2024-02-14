@@ -14,10 +14,10 @@ function LoginFormModal() {
 
   const demo = (e) => {
     // e.preventDefault();
-    setCredential('Demo-lition')
-    setPassword('password')
-    setErrors({});
-    return dispatch(sessionActions.login({ credential, password }))
+    // setCredential('Demo-lition')
+    // setPassword('password')
+    // setErrors({});
+    return dispatch(sessionActions.login({ credential:'Demo-lition', password:'password' }))
       .then(closeModal)
       .catch(async (res) => {
         const data = await res.json();

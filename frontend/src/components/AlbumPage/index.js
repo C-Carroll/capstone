@@ -68,7 +68,7 @@ const AlbumsPage = () => {
                                 (songs.map((song) => (
                                     <div className={toggleState === song.id ? "content active-content" : "content" }
                                     >
-                                        <AlbumPageContent song={song} />
+                                        <AlbumPageContent song={song} pic={album.albumPicture} />
                                     </div>
                                 )))
                                 :<div>... loading</div>}

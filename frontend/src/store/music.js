@@ -85,21 +85,27 @@ export const makeNewAlbum = (album) => async(dispatch) => {
     } else {throw new Error ('action failed')}
 }
 
+
 export const makeNewSong = (albumId, song) => async(dispatch) => {
-    const { songName, price, songUrl, isExplicit } = song
+    const { songName, price, songUrl, isExplicit, uid } = song
     const response = await csrfFetch(`/api/music/song/${albumId}`, {
         method: "POST",
         body: JSON.stringify({
             songName,
             price,
             songUrl,
-            isExplicit
+            isExplicit,
+            uid
         })
     })
     if(response.ok){
+        console.log('we hit and made imlact')
         const newSong = await response.json()
         dispatch(songsOnAlbum(newSong))
         return newSong
+    } else {
+        console.log('BBBAAD '+ response)
+        console.log('BBBAAD '+ uid)
     }
 }
 

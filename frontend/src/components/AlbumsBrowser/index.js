@@ -11,7 +11,7 @@ const AlbumBrowser = () => {
     const history = useHistory()
     const albums = useSelector((state) => state.music.albums.Albums)
     const user = useSelector((state) => state.session.user)
-    console.log(albums)
+    // console.log(albums)
     const [shuffled, setShuffled] = useState([])
 
     useEffect(() => {
@@ -51,9 +51,9 @@ const AlbumBrowser = () => {
 
                         <div className='abAlbum dropdown' title={album.albumName}>
                             <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">
-                            <div className='abAlbumPic'>
-                                <img className="abImg" src={album.albumPicture} alt={`Picture of ${album.albumName} cover art`}/>
-                            </div>
+                                <div className='abAlbumPic'>
+                                    <img className="abImg" src={album.albumPicture} alt={`Picture of ${album.albumName} cover art`}/>
+                                </div>
                             </Link>
                             <div className="abAlbumInfo">
                                 <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">
