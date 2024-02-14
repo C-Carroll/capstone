@@ -3,11 +3,15 @@ import { useSelector } from "react-redux";
 import { NavLink, Route, useParams } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import './APContent.css'
+import AudioPlayer from 'react-h5-audio-player';
+//import 'react-h5-audio-player/lib/styles.css';
 
 
 
-const AlbumPageContent = ({song}) => {
 
+const AlbumPageContent = ({song, pic}) => {
+
+    const audUrl =`${process.env.REACT_APP_AWSURL}${song.uid}`
     const urlMaker = (url) => {
         if(url.split('=')[0].endsWith('watch?v')){
             return `https://www.youtube.com/embed/${url.split('=')[1]}`
@@ -25,12 +29,13 @@ const AlbumPageContent = ({song}) => {
             {song && (
             <div className= "APCContainer">
                 <div className="APVideo">
-                    <iframe src={urlMaker(song.songUrl)} allowFullScreen></iframe>
-                    {console.log(song.songUrl)}
+                    {/* <iframe src={urlMaker(song.songUrl)} allowFullScreen></iframe> */}
+                    {song.songUrl ? <iframe src={urlMaker(song.songUrl)} allowFullScreen></iframe> : <div><img className="noVidPic" src={pic} alt={`Picture of  cover art`} /> </div>}
 
                 </div>
                 <div className="APSongInfo">
-                    {song.songName}
+                    <div>{song.songName}</div>
+                    <AudioPlayer autoPlay={false} muted={true} src={audUrl} className="audPlay" />
                 </div>
             </div>
             )}

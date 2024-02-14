@@ -71,7 +71,7 @@ router.post('/song/:albumId', validateSong, requireAuth, async (req, res) => {
     if (artistSearch !== null) {
         const albumSearch = await Album.findByPk(Number(req.params.albumId))
         if (albumSearch.artistId === artistSearch.id){
-            const { songName, price, songUrl, isExplicit } = req.body
+            const { songName, price, songUrl, isExplicit, uid } = req.body
             let newSong;
             try{
                 newSong = await Song.create({
@@ -80,7 +80,8 @@ router.post('/song/:albumId', validateSong, requireAuth, async (req, res) => {
                     songName,
                     price,
                     songUrl,
-                    isExplicit
+                    isExplicit,
+                    uid
                 })
                 const addedSong = {
                     id: newSong.id,
@@ -89,7 +90,8 @@ router.post('/song/:albumId', validateSong, requireAuth, async (req, res) => {
                     songName: newSong.songName,
                     price: newSong.price,
                     songUrl: newSong.songUrl,
-                    isExplicit: newSong.isExplicit
+                    isExplicit: newSong.isExplicit,
+                    uid
                 }
                 res.status(201).json(addedSong)
             }
