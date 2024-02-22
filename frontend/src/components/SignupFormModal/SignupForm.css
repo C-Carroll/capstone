@@ -11,3 +11,7 @@ padding-left:10px;
 .signupCo {
     padding: 10px
 }
+.signUpLab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

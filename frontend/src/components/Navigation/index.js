@@ -38,7 +38,7 @@ function Navigation({ isLoaded }) {
    return (
     <div className="Nav">
       <div className="navHome">
-        <NavLink exact to="/" id='homeLink'>
+        <NavLink exact to="/" id='homeLink' reloadDocument>
           Sound Voyage
         </NavLink>
       </div>

@@ -50,7 +50,7 @@ const AlbumBrowser = () => {
                     albums.sort((a,b) => b.id - a.id).map((album) => (
 
                         <div className='abAlbum dropdown' title={album.albumName}>
-                            <Link key={album.id} to={`/albums/${album.id}`} className="albumLink">
+                            <Link key={album.id} to={`/albums/${album.id}`} className="albumLink" reloadDocument>
                                 <div className='abAlbumPic'>
                                     <img className="abImg" src={album.albumPicture} alt={`Picture of ${album.albumName} cover art`}/>
                                 </div>

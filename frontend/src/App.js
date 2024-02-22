@@ -11,6 +11,7 @@ import NewAlbum from "./components/NewAlbum";
 import LandingPage from "./components/LandingPage";
 import ButtonDesign from "./components/ButtonDesign";
 import SingleUpload from "./components/UploadSingle";
+import Foot from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
           <ArtistPage />
         </Route>
       </Switch>}
+       <Foot />
     </>
   );
 }
