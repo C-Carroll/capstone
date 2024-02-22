@@ -48,7 +48,7 @@ useEffect(() => {
 
 
     }
-
+    if (!user) return history.push('/')
     return(
         <div className="becomeArtistContainer">
             <h1>Become an Artist</h1>

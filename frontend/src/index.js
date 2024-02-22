@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ModalProvider, Modal } from "./context/Modal";
 import App from "./App";
+import Foot from "./components/Footer";
 
 
 import configureStore from "./store";
@@ -34,6 +35,7 @@ function Root() {
         <BrowserRouter>
           <App />
           <Modal />
+
         </BrowserRouter>
 
       </Provider>

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;700&family=Major+Mono+Display&display=swap');
+
+.foot {
+    position: fixed;
+    /* negative value of footer height */
+    height: 35px;
+    background-color: #FF8FB1;
+    bottom: 0;
+    width: 100%;
+    left: -10;
+    right: -10;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    z-index: 5;
+    font-family: 'Major Mono Display', monospace;
+    color: #432C7A;
+    margin-left: 0%;
+}
+
+.createBy {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.createByLink{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+
+.newPage {
+    font-size: 25px;
+    color: #432C7A;
+}
+
+#gitHub:hover {
+    color: black;
+}
+
+#linkdin:hover {
+    color: #0b65c2;
+}
+
+#portfolio:hover {
+    color: yellow;
+}

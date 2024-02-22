@@ -11,6 +11,8 @@ import AudioPlayer from 'react-h5-audio-player';
 
 const AlbumPageContent = ({song, pic}) => {
 
+
+
     const audUrl =`${process.env.REACT_APP_AWSURL}${song.uid}`
     const urlMaker = (url) => {
         if(url.split('=')[0].endsWith('watch?v')){
@@ -35,7 +37,7 @@ const AlbumPageContent = ({song, pic}) => {
                 </div>
                 <div className="APSongInfo">
                     <div>{song.songName}</div>
-                    <AudioPlayer autoPlay={false} muted={true} src={audUrl} className="audPlay" />
+                    <AudioPlayer autoPlay={false} autoPlayAfterSrcChange={false} src={audUrl} className="audPlay" />
                 </div>
             </div>
             )}
