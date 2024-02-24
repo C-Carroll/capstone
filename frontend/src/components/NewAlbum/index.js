@@ -283,7 +283,7 @@ const NewAlbum = () => {
                                 <input required type="text" name="url" value={item.url || ""} onChange={(e) => onHandle(e, i)}></input>
                                 <div className="newSongError">{item.urlCheck}</div>
                             </div>
-                            <div>
+                            <div className="fileUpload">
                                 <label>Song File</label>
                                 <input type='file' name="sfile" value={item.file || null} onChange={(e) => onHanFile(e, i)} accept='audio/mp3'></input>
                             </div>
