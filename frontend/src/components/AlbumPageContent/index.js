@@ -4,7 +4,7 @@ import { NavLink, Route, useParams } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import './APContent.css'
 import AudioPlayer from 'react-h5-audio-player';
-//import 'react-h5-audio-player/lib/styles.css';
+
 
 
 
@@ -15,6 +15,7 @@ const AlbumPageContent = ({song, pic}) => {
 
     const audUrl =`${process.env.REACT_APP_AWSURL}${song.uid}`
     const urlMaker = (url) => {
+        console.log(song)
         if(url.split('=')[0].endsWith('watch?v')){
             return `https://www.youtube.com/embed/${url.split('=')[1]}`
         } else if(url.split('=')[0].endsWith('?si')){
@@ -37,7 +38,7 @@ const AlbumPageContent = ({song, pic}) => {
                 </div>
                 <div className="APSongInfo">
                     <div>{song.songName}</div>
-                    <AudioPlayer autoPlay={false} autoPlayAfterSrcChange={false} src={audUrl} className="audPlay" />
+                    {song.uid ? <AudioPlayer autoPlay={false} autoPlayAfterSrcChange={false} src={audUrl} className="audPlay" /> : <div>No mp3 available</div>}
                 </div>
             </div>
             )}

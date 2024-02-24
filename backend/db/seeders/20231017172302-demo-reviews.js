@@ -22,13 +22,13 @@ module.exports = {
         userId: 1,
         albumId: 1,
         rating: 5,
-        ratingDescription: "Goth Babe really worked his magic on this album",
+        ratingDescription: "This is one of my all time favorites!!!",
       },
       {
         userId: 3,
         albumId: 2,
         rating: 5,
-        ratingDescription: "Love to see how much Griff has evolved since his start. Super inspiring!!",
+        ratingDescription: "The desert vibes are certainly there!",
       },
       {
         userId: 1,

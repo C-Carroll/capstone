@@ -31,7 +31,7 @@ module.exports = {
         albumName: "Symphony No 70 in Gm 'Masud and The Desert'",
         albumPicture: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Desert_Dunes.jpg",
         albumPrice: 1,
-        albumRating: 4,
+        albumRating: 5,
         isExplicit: false
       },
       {
@@ -47,7 +47,7 @@ module.exports = {
         albumName: "Jehan Titelouze: Magnificats",
         albumPicture: "https://freemusicarchive.org/image/?file=album_image%2FLe3ZkwgouI2frUeC9gglnlmzQ4CATi8Wd9aslaxG.jpg&width=290&height=290&type=album",
         albumPrice: 9,
-        albumRating: 4,
+        albumRating: 5,
         isExplicit: false
       },
 

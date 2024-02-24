@@ -1,4 +1,24 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400&family=Major+Mono+Display&display=swap');
 body {
     background-color: #FCE2DB;
+}
+.rhap_container{
+    background-color: transparent ;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+.rhap_time{
+    color: black;
+    font-family: 'Farro', sans-serif;
+}
+.rhap_download-progress{
+    background-color: #d6b4c9;
+}
+.rhap_progress-filled{
+    background-color: #FF8FB1;
+}
+.rhap_container svg{
+    color: #d6b4c9;
 }

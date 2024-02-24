@@ -1,7 +1,8 @@
 // frontend/src/index.js
 import React from "react";
-
+import 'react-h5-audio-player/lib/styles.css';
 import "./index.css";
+
 
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";

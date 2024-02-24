@@ -100,21 +100,16 @@ const NewAlbum = () => {
                 data[i].nameCheck = ''
             }
 
-            if(!data[i].url === ''){
-
-                if (!(/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/gm.test(data[i].url))){
-                     data[i].urlCheck = 'Url must be from youtube'
-                     valid = false
-                } else {
-                     data[i].urlCheck = ''
-                }
+            if(data[i].url === ''){
+                data[i].urlCheck = 'Url is required'
+                valid = false
             }
-            else {
+            else if (!(/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/gm.test(data[i].url))){
+                data[i].urlCheck = 'Url must be from youtube'
+                valid = false
+            } else {
                 data[i].urlCheck = ''
             }
-
-
-
         }
 
         setFormVal(data)
@@ -177,14 +172,24 @@ const NewAlbum = () => {
                                 uid: ud
                             }
                             console.log(exam)
-                            await addSong(data[i].name, data[i].sfile)
-                            await dispatch(makeNewSong(albumId, {
-                                songName: data[i].name,
-                                price: 1,
-                                songUrl: data[i].url,
-                                isExplicit: data[i].isExplicit,
-                                uid: ud
-                            }))
+                            if (data[i].sfile){
+                                await addSong(ud, data[i].sfile)
+                                await dispatch(makeNewSong(albumId, {
+                                    songName: data[i].name,
+                                    price: 1,
+                                    songUrl: data[i].url,
+                                    isExplicit: data[i].isExplicit,
+                                    uid: ud
+                                }))
+                            } else {
+                                await dispatch(makeNewSong(albumId, {
+                                    songName: data[i].name,
+                                    price: 1,
+                                    songUrl: data[i].url,
+                                    isExplicit: data[i].isExplicit,
+                                    uid: null
+                                }))
+                            }
 
                         }
                     }
@@ -275,7 +280,7 @@ const NewAlbum = () => {
 
                             <div className="nasMid">
                                 <label>Song Url</label>
-                                <input type="text" name="url" value={item.url || ""} onChange={(e) => onHandle(e, i)}></input>
+                                <input required type="text" name="url" value={item.url || ""} onChange={(e) => onHandle(e, i)}></input>
                                 <div className="newSongError">{item.urlCheck}</div>
                             </div>
                             <div>
