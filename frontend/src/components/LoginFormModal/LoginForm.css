@@ -34,11 +34,21 @@
     background-color: #FF8FB1;
     border: 1px solid black;
     border-radius: 7px;
-    margin-top: 15px;
+    margin-top: 0px;
+    height: 24px;
 }
 
 .butts:hover {
     background-color: #80489C;
     color: #FF8FB1;
     cursor: pointer;
+}
+
+.loginErrs {
+    display: flex;
+    justify-content: center;
+    color: darkred;
+    margin: 0;
+    padding: 0;
+    height: 24px;
 }
