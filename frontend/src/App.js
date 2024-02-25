@@ -10,7 +10,7 @@ import BecomeArtist from "./components/BecomeArtistModal";
 import NewAlbum from "./components/NewAlbum";
 import LandingPage from "./components/LandingPage";
 import ButtonDesign from "./components/ButtonDesign";
-import SingleUpload from "./components/UploadSingle";
+
 import Foot from "./components/Footer";
 
 function App() {
@@ -27,9 +27,6 @@ function App() {
       <Switch>
         <Route exact path='/'>
             <LandingPage />
-        </Route>
-        <Route path='/fakeupload'>
-          <SingleUpload />
         </Route>
         <Route path='/albums/:albumId'>
           <AlbumsPage />

@@ -54,7 +54,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p className="signupErrs">{errors.email}</p>}
         <label className="signUpLab">
           Username
           <input
@@ -64,7 +64,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.username && <p>{errors.username}</p>}
+        {errors.username && <p className="signupErrs">{errors.username}</p>}
         <label className="signUpLab">
           First Name
           <input
@@ -74,7 +74,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.firstName && <p>{errors.firstName}</p>}
+        {errors.firstName && <p className="signupErrs">{errors.firstName}</p>}
         <label className="signUpLab">
           Last Name
           <input
@@ -84,7 +84,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.lastName && <p>{errors.lastName}</p>}
+        {errors.lastName && <p className="signupErrs">{errors.lastName}</p>}
         <label className="signUpLab">
           Password
           <input
@@ -94,7 +94,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p className="signupErrs">{errors.password}</p>}
         <label className="signUpLab">
           Confirm Password
           <input
@@ -105,7 +105,7 @@ function SignupFormModal() {
           />
         </label>
         {errors.confirmPassword && (
-          <p>{errors.confirmPassword}</p>
+          <p className="signupErrs">{errors.confirmPassword}</p>
         )}
         <button className="butts"type="submit">Sign Up</button>
       </form>
