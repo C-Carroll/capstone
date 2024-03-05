@@ -11,10 +11,10 @@
     right: -10;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    z-index: 5;
+    z-index: 7;
     font-family: 'Major Mono Display', monospace;
     color: #432C7A;
-    margin-left: 0%;
+    margin-left: -10px;
 }
 
 .createBy {
@@ -49,4 +49,10 @@
 
 #portfolio:hover {
     color: yellow;
+}
+.pxpx{
+    margin-left: -10px;
+    margin-right: -10px;
+    position: fixed;
+    bottom: 0;
 }

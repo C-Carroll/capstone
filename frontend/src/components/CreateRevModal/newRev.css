@@ -25,3 +25,10 @@
     cursor: pointer;
     border-radius:15px;
 }
+.revmodCont{
+    position: relative;
+}
+.background-drip{
+    position: absolute;
+
+}

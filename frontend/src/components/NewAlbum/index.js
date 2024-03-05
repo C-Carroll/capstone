@@ -6,6 +6,7 @@ import './NewAlbum.css'
 import { makeNewAlbum, makeNewSong, getAlbum, getSongsOnAlbum } from "../../store/music";
 import * as sessionActions from '../../store/session';
 import addSong from "../../context/addSong";
+import addPhoto from "../../context/addPhoto"
 const {v4: uuidv4} = require('uuid')
 
 const NewAlbum = () => {
@@ -14,7 +15,7 @@ const NewAlbum = () => {
     const [formVal, setFormVal] = useState([{name:'', url:'', isExplicit: false, file: null}])
     const [checked, setChecked] = useState([])
     const [albumName, setAlbumName]= useState('')
-    const [albumPicture, setAlbumPicture]= useState('')
+    const [albumPic, setAlbumPic]= useState(null)
     const [albumIsExplicit, setAlbumIsExplicit]= useState(false)
     const [isArt, setIsArt] = useState(false)
     const [errors, setErrors] = useState({})
@@ -61,6 +62,10 @@ const NewAlbum = () => {
         newForm[i][e.target.name] = file
         setFormVal(newForm)
         console.log(file)
+    }
+    const onHanImage = (e) => {
+        let file = e.target.files[0]
+        setAlbumPic(file)
     }
     const onCheck = (e, i) => {
         if(checked.includes(i)){
@@ -126,7 +131,7 @@ const NewAlbum = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log(formVal, ({albumInfo: {name: albumName, pic: albumPicture, explicit: albumIsExplicit}}))
+        console.log(formVal, ({albumInfo: {name: albumName, pic: albumPic, explicit: albumIsExplicit}}))
         const isSongValid = songValidation(formVal)
         setErrors({})
         let errs = {}
@@ -135,10 +140,8 @@ const NewAlbum = () => {
         } else if (albumName.length < 2){
             errs.albumName = "Album Name Must Be Two Characters Long"
         }
-        if(!albumPicture){
-            errs.albumPicture = "Album Must Have A Picture"
-        } else if (/\.(jpg|jpeg|png|PNG)$/.test(albumPicture) === false){
-            errs.albumPicture = "Image Url Must Be jpg (jpeg) Or png (PNG)"
+        if(!albumPic){
+            errs.albumPic = "Album Must Have A Picture"
         }
         if(!isSongValid){
             errs.song = "Song Validations not met"
@@ -150,9 +153,10 @@ const NewAlbum = () => {
             try{
                 setOn(false)
                 let albumPrice = formVal.length
+                let imgUrl = await addPhoto(albumPic)
                 const albumInfo = {
                     albumName,
-                    albumPicture,
+                    albumPicture: imgUrl,
                     albumPrice,
                     isExplicit: albumIsExplicit
                 }
@@ -234,7 +238,8 @@ const NewAlbum = () => {
                                     type="text"
                                     required
                                     placeholder="Album Name"
-                                    value={albumName}
+                                    name
+                                    value={albumName || ''}
                                     onChange={((e) => setAlbumName(e.target.value))}
                                 ></input>
                                 {errors.albumName &&  <div className="newAlbumError">{errors.albumName}</div>}
@@ -243,13 +248,15 @@ const NewAlbum = () => {
                             <label> Album Picture
                                 <input
                                     id='ap'
-                                    type="text"
+                                    type="file"
+                                    accept='image/*'
+                                    name="albumPic"
                                     required
                                     placeholder="Album Picutre"
-                                    value={albumPicture}
-                                    onChange={((e) => setAlbumPicture(e.target.value))}
+
+                                    onChange={((e) => onHanImage(e))}
                                 ></input>
-                                {errors.albumPicture &&  <div className="newAlbumError">{errors.albumPicture}</div>}
+                                {errors.albumPic &&  <div className="newAlbumError">{errors.albumPicture}</div>}
                             </label>
 
                             <label> Explicit
@@ -285,7 +292,7 @@ const NewAlbum = () => {
                             </div>
                             <div className="fileUpload">
                                 <label>Song File</label>
-                                <input type='file' name="sfile" value={item.file || null} onChange={(e) => onHanFile(e, i)} accept='audio/mp3'></input>
+                                <input type='file' name="sfile" required value={item.file || null} onChange={(e) => onHanFile(e, i)} accept='audio/mp3'></input>
                             </div>
 
                             <div className="nasBot">

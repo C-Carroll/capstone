@@ -9,24 +9,34 @@ import ArtistPage from "./components/ArtistPage";
 import BecomeArtist from "./components/BecomeArtistModal";
 import NewAlbum from "./components/NewAlbum";
 import LandingPage from "./components/LandingPage";
-import ButtonDesign from "./components/ButtonDesign";
+import AlbumsDeatsPage from "./components/AlbumDeats";
+import LoadingPage from "./components/LoadingScreen";
 
 import Foot from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
+
       <Navigation isLoaded={isLoaded} />
       {isLoaded &&
       <Switch>
         <Route exact path='/'>
             <LandingPage />
+        </Route>
+        <Route path='/load'>
+          <LoadingPage />
+        </Route>
+        <Route path='/albumDeat/:albumId'>
+          <AlbumsDeatsPage />
         </Route>
         <Route path='/albums/:albumId'>
           <AlbumsPage />

@@ -8,6 +8,7 @@
     width: 1240px;
     background-color: #FCE2DB;
     margin-top: 65px;
+    margin-bottom: 40px;
 }
 .abHeader {
     grid-row-start: 1;
@@ -62,6 +63,7 @@
     justify-content: space-around;
     position: relative;
     bottom: 60px;
+    z-index: 2;
 
 }
 .abAlbum:hover .abAlbumInfo{
