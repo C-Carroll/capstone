@@ -1,8 +1,8 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import * as sessionActions from '../../store/session';
-import './Navigation.css'
+import { useDispatch, useSelector } from "react-redux";
+import * as sessionActions from "../../store/session";
+import "./Navigation.css";
 import ArtistButton from "./ArtistButton";
 
 function ProfileButton({ user }) {
@@ -24,7 +24,7 @@ function ProfileButton({ user }) {
       }
     };
 
-    document.addEventListener('click', closeMenu);
+    document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
@@ -36,8 +36,6 @@ function ProfileButton({ user }) {
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
-
-
   return (
     <div className="proButt">
       <button onClick={openMenu}>
@@ -45,10 +43,14 @@ function ProfileButton({ user }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
         <li>{user.username}</li>
-        <li>{user.firstName} {user.lastName}</li>
+        <li>
+          {user.firstName} {user.lastName}
+        </li>
         <li>{user.email}</li>
         <li>
-          <button onClick={logout} id='sixty'>Log Out</button>
+          <button onClick={logout} id="sixty">
+            Log Out
+          </button>
         </li>
       </ul>
     </div>

@@ -15,7 +15,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div className="navBarRight">
-        <ArtistButton user={sessionUser}/>
+        <ArtistButton user={sessionUser} />
         <ProfileButton user={sessionUser} />
       </div>
     );
@@ -35,10 +35,10 @@ function Navigation({ isLoaded }) {
   }
 
   // if (!sessionUser) return null
-   return (
+  return (
     <div className="Nav">
       <div className="navHome">
-        <NavLink exact to="/" id='homeLink' reloadDocument>
+        <NavLink exact to="/" id="homeLink" reloadDocument>
           Sound Voyage
         </NavLink>
       </div>

@@ -25,36 +25,36 @@ function App() {
 
   return (
     <>
-
       <Navigation isLoaded={isLoaded} />
-      {isLoaded &&
-      <Switch>
-        <Route exact path='/'>
+      {isLoaded && (
+        <Switch>
+          <Route exact path="/">
             <LandingPage />
-        </Route>
-        <Route path='/load'>
-          <LoadingPage />
-        </Route>
-        <Route path='/albumDeat/:albumId'>
-          <AlbumsDeatsPage />
-        </Route>
-        <Route path='/albums/:albumId'>
-          <AlbumsPage />
-        </Route>
-        <Route path="/newArtist">
-          <BecomeArtist />
-        </Route>
-        <Route path='/albums'>
-          <AlbumBrowser />
-        </Route>
-        <Route path='/newAlbum'>
-          <NewAlbum />
-        </Route>
-        <Route path='/artist/:artistId'>
-          <ArtistPage />
-        </Route>
-      </Switch>}
-       <Foot />
+          </Route>
+          <Route path="/load">
+            <LoadingPage />
+          </Route>
+          <Route path="/albumDeat/:albumId">
+            <AlbumsDeatsPage />
+          </Route>
+          <Route path="/albums/:albumId">
+            <AlbumsPage />
+          </Route>
+          <Route path="/newArtist">
+            <BecomeArtist />
+          </Route>
+          <Route path="/albums">
+            <AlbumBrowser />
+          </Route>
+          <Route path="/newAlbum">
+            <NewAlbum />
+          </Route>
+          <Route path="/artist/:artistId">
+            <ArtistPage />
+          </Route>
+        </Switch>
+      )}
+      <Foot />
     </>
   );
 }

@@ -37,7 +37,8 @@ function SignupFormModal() {
         });
     }
     return setErrors({
-      confirmPassword: "Confirm Password field must be the same as the Password field"
+      confirmPassword:
+        "Confirm Password field must be the same as the Password field",
     });
   };
 
@@ -107,7 +108,9 @@ function SignupFormModal() {
         {errors.confirmPassword && (
           <p className="signupErrs">{errors.confirmPassword}</p>
         )}
-        <button className="butts"type="submit">Sign Up</button>
+        <button className="butts" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );
