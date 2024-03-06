@@ -13,11 +13,9 @@ function LoginFormModal() {
   const { closeModal } = useModal();
 
   const demo = (e) => {
-    // e.preventDefault();
-    // setCredential('Demo-lition')
-    // setPassword('password')
-    // setErrors({});
-    return dispatch(sessionActions.login({ credential:'Demo-lition', password:'password' }))
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    )
       .then(closeModal)
       .catch(async (res) => {
         const data = await res.json();
@@ -25,7 +23,7 @@ function LoginFormModal() {
           setErrors(data.errors);
         }
       });
-    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,9 +43,7 @@ function LoginFormModal() {
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <div className="cred">
-        <label id='usrnm'>
-          Username or Email
-          </label>
+          <label id="usrnm">Username or Email</label>
           <input
             type="text"
             value={credential}
@@ -55,9 +51,7 @@ function LoginFormModal() {
             required
           />
 
-        <label>
-          Password
-        </label>
+          <label>Password</label>
           <input
             type="password"
             value={password}
@@ -67,19 +61,18 @@ function LoginFormModal() {
         </div>
 
         <div className="loginErrs">
-
-          {errors.credential && (
-            <p>{errors.credential}</p>
-          )}
-
+          {errors.credential && <p>{errors.credential}</p>}
         </div>
 
         <div className="logButt">
-        <button className="butts" onClick={(() => demo())}>Demo User</button>
-        <button className="butts" type="submit">Log In</button>
+          <button className="butts" onClick={() => demo()}>
+            Demo User
+          </button>
+          <button className="butts" type="submit">
+            Log In
+          </button>
         </div>
       </form>
-
     </div>
   );
 }
