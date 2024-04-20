@@ -10,8 +10,9 @@ import {
   getSongsOnAlbum,
 } from "../../store/music";
 import * as sessionActions from "../../store/session";
-import addSong from "../../context/addSong";
+
 import addPhoto from "../../context/addPhoto";
+import addAudio from "../../context/addAudio";
 const { v4: uuidv4 } = require("uuid");
 
 const NewAlbum = () => {
@@ -178,7 +179,7 @@ const NewAlbum = () => {
               };
 
               if (data[i].sfile) {
-                await addSong(ud, data[i].sfile);
+                await addAudio(ud, data[i].sfile);
                 await dispatch(
                   makeNewSong(albumId, {
                     songName: data[i].name,

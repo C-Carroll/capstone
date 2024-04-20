@@ -161,3 +161,6 @@
     color: #FF8FB1;
     cursor: pointer;
 }
+.navForms > button:hover {
+    cursor: pointer;
+}
