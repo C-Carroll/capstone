@@ -179,14 +179,14 @@ const NewAlbum = () => {
               };
 
               if (data[i].sfile) {
-                await addAudio(ud, data[i].sfile);
+                let ud1 = await addAudio(ud, data[i].sfile);
                 await dispatch(
                   makeNewSong(albumId, {
                     songName: data[i].name,
                     price: 1,
                     songUrl: data[i].url,
                     isExplicit: data[i].isExplicit,
-                    uid: ud,
+                    uid: ud1,
                   })
                 );
               } else {
