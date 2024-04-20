@@ -49,7 +49,7 @@ const AlbumPageContent = ({ song, pic }) => {
               <AudioPlayer
                 autoPlay={false}
                 autoPlayAfterSrcChange={false}
-                src={audUrl}
+                src={song.uid}
                 className="audPlay"
               />
             ) : (
