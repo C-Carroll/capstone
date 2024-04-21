@@ -58,6 +58,7 @@ const BecomeArtist = () => {
         <label>
           Artist Description:
           <textarea
+          className="artDes"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
