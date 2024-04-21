@@ -48,6 +48,7 @@ const BecomeArtist = () => {
         <label>
           Artist Name:
           <input
+            className="artDes"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
