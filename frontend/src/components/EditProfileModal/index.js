@@ -50,6 +50,7 @@ const EditProfileModal = (artist) => {
         <label>
           Name:
           <input
+            className="editDes"
             type="text"
             placeholder={`${name}`}
             onChange={(e) => setNewName(e.target.value)}
@@ -59,6 +60,7 @@ const EditProfileModal = (artist) => {
         <label>
           Description:
           <textarea
+            className="editDes"
             placeholder={`${description}`}
             onChange={(e) => setNewDescription(e.target.value)}
           ></textarea>

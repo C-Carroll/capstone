@@ -48,6 +48,7 @@ const BecomeArtist = () => {
         <label>
           Artist Name:
           <input
+            className="artDes"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -58,6 +59,7 @@ const BecomeArtist = () => {
         <label>
           Artist Description:
           <textarea
+          className="artDes"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required

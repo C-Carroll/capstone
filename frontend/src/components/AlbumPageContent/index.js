@@ -49,7 +49,7 @@ const AlbumPageContent = ({ song, pic }) => {
               <AudioPlayer
                 autoPlay={false}
                 autoPlayAfterSrcChange={false}
-                src={song.uid}
+                src={`${process.env.REACT_APP_AWSURL}${song.uid}`}
                 className="audPlay"
               />
             ) : (
